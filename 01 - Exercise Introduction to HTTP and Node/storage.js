@@ -42,7 +42,7 @@ module.exports = {
             throw new Error("The key should be string");
         }
     },
-    delete:(key) =>{
+    delete: (key) => {
         if (typeof key === 'string') {
             if (storage.hasOwnProperty(key)) {
                 delete storage[key];
@@ -53,11 +53,13 @@ module.exports = {
             throw new Error("The key should be string");
         }
     },
-    clear:() =>{ storage = {};},
-    save: () =>{
+    clear: () => {
+        storage = {};
+    },
+    save: () => {
         fs.writeFileSync('storage.json', JSON.stringify(storage), 'utf-8');
     },
-    load: () =>{
+    load: () => {
         if (fs.existsSync('storage.json')) {
             let data = fs.readFileSync('storage.json', 'utf-8');
             storage = JSON.parse(data);
@@ -65,6 +67,5 @@ module.exports = {
         else {
             throw new Error("File does not exist");
         }
-
     }
 };
