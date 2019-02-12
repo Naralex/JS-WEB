@@ -1,5 +1,7 @@
 const env = process.env.NODE_ENV || 'development';
 
+const test = 'gg';
+
 const config = require('./config/config')[env];
 require('./config/database')(config);
 const app = require('express')();
